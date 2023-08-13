@@ -181,19 +181,22 @@
 </header>
 <h1 id="definition">Definition</h1>
 <div class="definition">
-<p>Let <span class="math inline">\(\lib_\ell, \lib_r\)</span> denote two
-libraries with a common interface. We say that these libraries are
-indistinguishable – written <span class="math inline">\(\lib_\ell
-\indist \lib_r\)</span> – if for any polytime procedure <span
-class="math inline">\(\adv\)</span> the following quantity is <a
+<p><strong>Definition 1</strong> (Indistinguishability). <em>Let <span
+class="math inline">\(\mathcal{L}_\ell, \mathcal{L}_r\)</span> denote
+two libraries with a common interface. We say that these libraries are
+indistinguishable – written <span class="math inline">\(\mathcal{L}_\ell
+\approx\mathcal{L}_r\)</span> – if for any polytime procedure <span
+class="math inline">\(\mathcal{A}\)</span> the following quantity is <a
 href="negligible.html">negligible</a> in <span
 class="math inline">\(\lambda\)</span>: <span
 class="math display">\[\begin{aligned}
-    |\mathrm{Pr}[(\adv \linked \lib_\ell)(1^\lambda) \Rightarrow 1]
+    |\mathrm{Pr}[(\mathcal{A}\diamond\mathcal{L}_\ell)(1^\lambda)
+\Rightarrow 1]
     -
-    \mathrm{Pr}[(\adv \linked \lib_r)(1^\lambda) \Rightarrow 1]|
+    \mathrm{Pr}[(\mathcal{A}\diamond\mathcal{L}_r)(1^\lambda)
+\Rightarrow 1]|
   
-\end{aligned}\]</span></p>
+\end{aligned}\]</span></em></p>
 </div>
 <h1 id="properties">Properties</h1>
 <p>Indistinguishability forms an <a
@@ -201,23 +204,26 @@ href="https://en.wikipedia.org/wiki/Equivalence_relation">equivalence
 relation</a> on libraries. More precisely, indistinguishability is
 trivially reflexive and symmetric, and it is also transitive.</p>
 <div class="lemma">
-<p>Let <span class="math inline">\(\lib_0, \lib_1, \lib_2\)</span> be
-three libraries with a common interface. If <span
-class="math inline">\(\lib_0 \indist \lib_1\)</span> and <span
-class="math inline">\(\lib_1 \indist \lib_2\)</span>, then <span
-class="math inline">\(\lib_0 \indist \lib_2\)</span>.</p>
+<p><strong>Lemma 1</strong> (Indistinguishability is transitive).
+<em>Let <span class="math inline">\(\mathcal{L}_0, \mathcal{L}_1,
+\mathcal{L}_2\)</span> be three libraries with a common interface. If
+<span class="math inline">\(\mathcal{L}_0 \approx\mathcal{L}_1\)</span>
+and <span class="math inline">\(\mathcal{L}_1
+\approx\mathcal{L}_2\)</span>, then <span
+class="math inline">\(\mathcal{L}_0
+\approx\mathcal{L}_2\)</span>.</em></p>
 </div>
 <div class="proof">
 <p><em>Proof.</em> By <a
 href="https://en.wikipedia.org/wiki/Triangle_inequality">triangle
 inequality</a>.</p>
 <p>Suppose the conclusion <em>does not</em> hold, i.e. <span
-class="math inline">\(\lib_0 \not \indist \lib_2\)</span>. Then by
-definition there exists a polytime procedure <span
-class="math inline">\(\adv\)</span> that can distinguish <span
-class="math inline">\(\lib_0\)</span> and <span
-class="math inline">\(\lib_2\)</span> with non-negligible advantage.
-TODO. ◻</p>
+class="math inline">\(\mathcal{L}_0 \not \approx\mathcal{L}_2\)</span>.
+Then by definition there exists a polytime procedure <span
+class="math inline">\(\mathcal{A}\)</span> that can distinguish <span
+class="math inline">\(\mathcal{L}_0\)</span> and <span
+class="math inline">\(\mathcal{L}_2\)</span> with non-negligible
+advantage. TODO. ◻</p>
 </div>
 <footer><a href="indistinguishability.tex.html">LaTeX source</a></footer>
 </body>
