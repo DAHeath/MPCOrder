@@ -1,5 +1,6 @@
-*.html
+.DS_Store
 *.aux
 *.log
+page/*/build
 
 !templates/page.html

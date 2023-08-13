@@ -1,9 +1,7 @@
-all: prg.html prf.html indist.html prg.html negligible.html ensemble.html
+SUBDIRS := $(wildcard page/*/.)
 
-%.tex.html: %.tex
-	@echo '<html><head><meta name="color-scheme" content="light dark"></head><body><pre style="word-wrap: break-word; white-space: pre-wrap;">' > $@
-	@cat $^ >> $@
-	@echo '</pre></body></html>' >> $@
+all: $(SUBDIRS)
+$(SUBDIRS):
+	$(MAKE) -C $@
 
-%.html: %.tex
-	pandoc $^ --to html --mathjax --toc --template=templates/page.html --citeproc -o $@
+.PHONY: all $(SUBDIRS)

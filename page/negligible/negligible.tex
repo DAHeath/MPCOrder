@@ -1,0 +1,39 @@
+\documentclass{article}
+
+\input{../../common}
+
+\title{Negligible Functions}
+
+\begin{document}
+
+\maketitle
+
+\section{Definition}
+A function is \emph{negligible} if it decreases more rapidly than any inverse polynomial.
+More precisely:
+\begin{definition}[Negligible]
+  Let $\mu : \mathbb{N} \rightarrow \mathbb{R}$ denote a function.
+  We say that $\mu$ is \textbf{negligible} if for every positive polynomial $f$ there exists some natural number $x_0$ such that for all $x > x_0$:
+  \[
+    |\mu(x)| < \frac{1}{f(x)}
+  \]
+\end{definition}
+
+\section{Properties}
+
+Negligible functions are particularly friendly to analysis because they are \emph{closed} under addition and scalar multiplication:
+
+\begin{itemize}
+  \item If $\mu$ and $\nu$ are negligible, then so is the function $x \mapsto \mu(x) + \nu(x)$.
+  \item If $\mu$ is negligible and $f$ is a polynomial, then the function $x \mapsto f(x) \cdot \mu(x)$ is negligible.
+\end{itemize}
+
+\section{Usefulness}
+
+We often use negligible functions to bound the advantage of some adversary $\adv$.
+See, e.g., the definition of \href{indistinguishability.html}{indistinguishability}.
+
+\bibliographystyle{plain}
+\bibliography{custom, ../../bib/crypto}
+
+\end{document}
