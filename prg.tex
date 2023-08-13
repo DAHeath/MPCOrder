@@ -1,0 +1,49 @@
+\documentclass{article}
+
+\input{common}
+
+\title{Pseudorandom Generators}
+
+\begin{document}
+
+
+\maketitle
+
+\begin{definition}[Pseudorandom Generator]
+  A \textbf{Pseudorandom Generator} (PRG) is a polytime computable function $G :
+  \bit^\lambda \rightarrow \bit^{\lambda + \ell}$.
+  We refer to $\ell$ as the \textbf{stretch} of $G$.
+  $G$ is a \textbf{secure} PRG if the following libraries are \href{indist.html}{indistinguishable}:
+  \begin{align*}
+  \boxed{
+  \begin{aligned}
+    &\many{Query}():\\
+    &~~s \gets \bit^\lambda\\
+    &~~\word{return}~G(s)
+  \end{aligned}
+  }
+  ~\indist~
+  \boxed{
+  \begin{aligned}
+    &\many{Query}():\\
+    &~~\many{val} \gets \bit^{\lambda + \ell}\\
+    &~~\word{return}~\many{val}
+  \end{aligned}
+  }
+\end{align*}
+\end{definition}
+
+\begin{itemize}
+  \item Test
+  \item Test
+\end{itemize}
+
+Testing \cite{Goldreich01,C:IKNP03}
+
+\subsection*{Citations}
+
+\bibliographystyle{plain}
+\bibliography{bib/crypto}
+
+
+\end{document}

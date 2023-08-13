@@ -1,0 +1,22 @@
+\documentclass{article}
+
+\input{common}
+
+\title{Indistinguishability}
+
+\begin{document}
+
+\maketitle
+
+\begin{definition}[Indistinguishability]
+  Let $\lib_\ell, \lib_r$ denote two libraries with a common interface. We say
+  that these libraries are indistinguishable -- written $\lib_\ell \indist \lib_r$ -- if for any polytime
+  procedure $\adv$ the following quantity is negligible in $\lambda$:
+  \begin{align*}
+    |\mathrm{Pr}[\adv \linked \lib_\ell \Rightarrow 1]
+    -
+    \mathrm{Pr}[\adv \linked \lib_r \Rightarrow 1]|
+  \end{align*}
+\end{definition}
+
+\end{document}
