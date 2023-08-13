@@ -1,0 +1,46 @@
+<html><head><meta name="color-scheme" content="light dark"></head><body><pre style="word-wrap: break-word; white-space: pre-wrap;">
+\documentclass{article}
+
+\input{common}
+
+\title{Indistinguishability}
+
+\begin{document}
+
+\maketitle
+
+\section{Definition}
+
+\begin{definition}[Indistinguishability]
+  Let $\lib_\ell, \lib_r$ denote two libraries with a common interface. We say
+  that these libraries are indistinguishable -- written $\lib_\ell \indist \lib_r$ -- if for any polytime
+  procedure $\adv$ the following quantity is \href{negligible.html}{negligible} in $\lambda$:
+  \begin{align*}
+    |\mathrm{Pr}[(\adv \linked \lib_\ell)(1^\lambda) \Rightarrow 1]
+    -
+    \mathrm{Pr}[(\adv \linked \lib_r)(1^\lambda) \Rightarrow 1]|
+  \end{align*}
+\end{definition}
+
+\section{Properties}
+
+Indistinguishability forms an
+\href{https://en.wikipedia.org/wiki/Equivalence_relation}{equivalence relation}
+on libraries.
+More precisely, indistinguishability is trivially reflexive and symmetric, and it is also transitive.
+
+\begin{lemma}[Indistinguishability is transitive]
+  Let $\lib_0, \lib_1, \lib_2$ be three libraries with a common interface. If
+    $\lib_0 \indist \lib_1$ and $\lib_1 \indist \lib_2$,
+    then $\lib_0 \indist \lib_2$.
+\end{lemma}
+\begin{proof}
+  By \href{https://en.wikipedia.org/wiki/Triangle_inequality}{triangle inequality}.
+
+  Suppose the conclusion \emph{does not} hold, i.e. $\lib_0 \not \indist \lib_2$.
+  Then by definition there exists a polytime procedure $\adv$ that can distinguish $\lib_0$ and $\lib_2$ with non-negligible advantage.
+  TODO.
+\end{proof}
+
+\end{document}
+</pre></body></html>

@@ -1,4 +1,5 @@
 .DS_Store
+bib/
 *.aux
 *.log
 page/*/build

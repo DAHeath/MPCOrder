@@ -6,7 +6,7 @@ echo "all:
 	mkdir -p build
 	../../make-page.sh $1
 	../../make-source-page.sh $1
-	cp build/*.html ../../build/
+	cp build/*.html ../../docs/
 
 clean:
 	rm -rf build" > page/$1/Makefile

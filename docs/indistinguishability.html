@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>Pseudorandom Generators</title>
+  <title>Indistinguishability</title>
   <style>
     html {
       color: #1a1a1a;
@@ -177,41 +177,49 @@
 </head>
 <body>
 <header id="title-block-header">
-<h1 class="title">Pseudorandom Generators</h1>
+<h1 class="title">Indistinguishability</h1>
 </header>
+<h1 id="definition">Definition</h1>
 <div class="definition">
-<p><strong>Definition 1</strong> (Pseudorandom Generator). <em>A
-<strong>Pseudorandom Generator</strong> (PRG) is a polytime computable
-function <span class="math inline">\(G :
-  \{0,1\}^\lambda \rightarrow \{0,1\}^{\lambda + \ell}\)</span>. We
-refer to <span class="math inline">\(\ell\)</span> as the
-<strong>stretch</strong> of <span class="math inline">\(G\)</span>.
-<span class="math inline">\(G\)</span> is a <strong>secure</strong> PRG
-if the following libraries are <a
-href="indistinguishable.html">indistinguishable</a>: <span
+<p>Let <span class="math inline">\(\lib_\ell, \lib_r\)</span> denote two
+libraries with a common interface. We say that these libraries are
+indistinguishable – written <span class="math inline">\(\lib_\ell
+\indist \lib_r\)</span> – if for any polytime procedure <span
+class="math inline">\(\adv\)</span> the following quantity is <a
+href="negligible.html">negligible</a> in <span
+class="math inline">\(\lambda\)</span>: <span
 class="math display">\[\begin{aligned}
-  \boxed{
-  \begin{aligned}
-    &amp;\mathit{Query}():\\
-    &amp;~~s \gets \{0,1\}^\lambda\\
-    &amp;~~\mathsf{return}~G(s)
-  \end{aligned}
-  }
-  ~\approx~
-  \boxed{
-  \begin{aligned}
-    &amp;\mathit{Query}():\\
-    &amp;~~\mathit{val} \gets \{0,1\}^{\lambda + \ell}\\
-    &amp;~~\mathsf{return}~\mathit{val}
-  \end{aligned}
-  }
-\end{aligned}\]</span></em></p>
+    |\mathrm{Pr}[(\adv \linked \lib_\ell)(1^\lambda) \Rightarrow 1]
+    -
+    \mathrm{Pr}[(\adv \linked \lib_r)(1^\lambda) \Rightarrow 1]|
+  
+\end{aligned}\]</span></p>
 </div>
-<ul>
-<li><p>Test</p></li>
-<li><p>Test</p></li>
-</ul>
-<footer><a href="prg.tex.html">LaTeX source</a></footer>
+<h1 id="properties">Properties</h1>
+<p>Indistinguishability forms an <a
+href="https://en.wikipedia.org/wiki/Equivalence_relation">equivalence
+relation</a> on libraries. More precisely, indistinguishability is
+trivially reflexive and symmetric, and it is also transitive.</p>
+<div class="lemma">
+<p>Let <span class="math inline">\(\lib_0, \lib_1, \lib_2\)</span> be
+three libraries with a common interface. If <span
+class="math inline">\(\lib_0 \indist \lib_1\)</span> and <span
+class="math inline">\(\lib_1 \indist \lib_2\)</span>, then <span
+class="math inline">\(\lib_0 \indist \lib_2\)</span>.</p>
+</div>
+<div class="proof">
+<p><em>Proof.</em> By <a
+href="https://en.wikipedia.org/wiki/Triangle_inequality">triangle
+inequality</a>.</p>
+<p>Suppose the conclusion <em>does not</em> hold, i.e. <span
+class="math inline">\(\lib_0 \not \indist \lib_2\)</span>. Then by
+definition there exists a polytime procedure <span
+class="math inline">\(\adv\)</span> that can distinguish <span
+class="math inline">\(\lib_0\)</span> and <span
+class="math inline">\(\lib_2\)</span> with non-negligible advantage.
+TODO. ◻</p>
+</div>
+<footer><a href="indistinguishability.tex.html">LaTeX source</a></footer>
 </body>
 </html>
 
