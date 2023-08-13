@@ -1,3 +1,6 @@
+#!/bin/bash/
+
+
 SUBDIRS := $(wildcard page/*/.)
 
 all: $(SUBDIRS)
